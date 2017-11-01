@@ -1,0 +1,37 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.8.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'sql-server-test'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '6.3.4.jre8-preview'
+//    compile("com.microsoft.sqlserver:sqljdbc4:4.0")
+    compile("org.projectlombok:lombok:1.16.18")
+//    compile files("libs/sqljdbc4-4.0.jar")
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+
